@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Note entry animation */
+@keyframes note-entry {
+  0% {
+    transform: translateY(-100px) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+.animate-note-entry {
+  animation: note-entry 1.2s ease-out forwards;
+}
+
+/* Fade-in for buttons */
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadein {
+  animation: fadein 1.5s ease-in-out 1.5s forwards;
+  opacity: 0;
+}
+
+/* Bow floating across screen faster */
+@keyframes bow-float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(20px, -15px) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-10px, 10px) rotate(-2deg);
+    opacity: 0.85;
+  }
+}
+
+.bow-float {
+  animation: bow-float 4s ease-in-out infinite alternate;
+  opacity: 0.9;
+  filter: none;
+  z-index: 1;
+}

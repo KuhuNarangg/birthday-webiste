@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Invited!</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      background-color: #f9f5f1;
+      font-family: 'Playfair Display', serif;
+      color: #2b2b2b;
+      overflow: hidden;
+    }
+
+    .fade {
+      animation: fadeIn 1.2s ease-in-out both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .glow-arrow {
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 0.6; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(5px); }
+    }
+
+    .heart {
+      position: absolute;
+      color: #6B81B7;
+      font-size: 1.5rem;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.4;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-20px) scale(1.1); opacity: 0.6; }
+      100% { transform: translateY(0) scale(1); opacity: 0.3; }
+    }
+  </style>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen relative px-4 py-10 fade">
+
+  <!-- Floating Hearts -->
+  <div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+    <div class="heart" style="top: 20%; left: 10%;">💙</div>
+    <div class="heart" style="top: 40%; left: 80%;">💙</div>
+    <div class="heart" style="top: 60%; left: 10%;">💙</div>
+    <div class="heart" style="top: 75%; left: 70%;">💙</div>
+    <div class="heart" style="top: 80%; left: 80%;">💙</div>
+  </div>
+
+  <!-- Invite and Theme Images -->
+  <div class="flex flex-col md:flex-row gap-6 z-10 items-center justify-center">
+    <!-- Invitation -->
+    <div class="text-center flex flex-col items-center">
+      <p class="mb-2 font-['Dancing_Script'] text-xl text-[#6B81B7]">invite:</p>
+      <img src="images/invite.jpg" alt="Invitation"
+           class="w-[85vw] md:w-[350px] h-auto rounded-xl shadow-xl object-cover" />
+    </div>
+
+    <!-- Theme -->
+    <div class="text-center flex flex-col items-center">
+      <p class="mb-2 font-['Dancing_Script'] text-xl text-[#6B81B7]">theme:</p>
+      <img src="images/part.jpg" alt="Theme Moodboard"
+           class="w-[85vw] md:w-[350px] h-auto rounded-xl shadow-xl object-cover" />
+    </div>
+  </div>
+
+  <!-- Next Button (Arrow) -->
+  <a href="theme-details.html" 
+   class="fixed right-5 top-1/2 transform -translate-y-1/2 text-[#6B81B7] text-xl glow-arrow hover:scale-110 transition duration-300 z-10">
+  next →
+</a>
+
+
+</body>
+</html>

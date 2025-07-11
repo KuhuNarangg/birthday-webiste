@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spin the Memory Wheel</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="spin.css" />
+</head>
+<body class="relative min-h-screen flex flex-col items-center justify-center text-[#2b2b2b]">
+
+  <!-- Grain texture overlay -->
+  <div class="grain-overlay absolute inset-0 z-0"></div>
+
+  <!-- Title -->
+  <h1 class="text-4xl font-['Dancing_Script'] text-center mb-4 relative z-10">🎡 Spin the Wheel of Memories</h1>
+
+  <!-- Subtitle -->
+  <p class="text-center max-w-xl text-sm mb-10 px-4 relative z-10 italic text-[#4a4a4a]">
+    You will be given one question, write the answer to that — and no blank space or ChatGPT. I want you and your energy to work for the invitation.
+  </p>
+
+  <!-- Wheel -->
+  <div class="relative w-[300px] h-[300px] rounded-full border-4 border-[#bbb] bg-white shadow-xl flex items-center justify-center z-10">
+    <div id="wheel" class="text-center text-sm font-semibold text-[#555] px-4">
+      Click the button to spin
+    </div>
+  </div>
+
+  <!-- Spin Button -->
+  <button id="spinBtn" class="mt-8 bg-[#2b2b2b] text-white px-6 py-2 rounded-full text-lg hover:bg-[#444] transition z-10">🎯 Spin</button>
+
+  <!-- Popup Prompt Overlay -->
+  <div id="promptOverlay" class="hidden fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-6 max-w-md text-center text-[#2b2b2b] shadow-xl">
+      <h2 id="promptText" class="text-xl mb-4 font-['Dancing_Script']">Your prompt appears here</h2>
+      <button id="answerBtn" class="mt-4 bg-[#2b2b2b] text-white px-5 py-2 rounded-full hover:bg-[#444] transition">Next</button>
+    </div>
+  </div>
+
+  <!-- Floating Prompts -->
+  <div class="floating top-10 left-[5%]">When was the moment you knew I mattered to you?</div>
+  <div class="floating top-20 right-[10%]">Write your favorite memory or day we spent together with me</div>
+  <div class="floating top-[70%] left-[5%]">When was the moment you knew I mattered to you?</div>
+  <div class="floating top-[80%] right-[10%]">When was the moment you knew I mattered to you?</div>
+  <div class="floating top-[45%] left-[2%]">What reminds you of me?</div>
+  <div class="floating top-[55%] right-[2%]">What's something I do when I'm upset that I think I’m hiding well?</div>
+  <div class="floating top-[30%] left-[20%]">One song that reminds you of me</div>
+  <div class="floating top-[55%] right-[25%]">one thing you'd never want me to change</div>
+  <div class="floating top-[65%] left-[30%]">something i love alot - a product a food or anything do describe</div>
+  <div class="floating top-[35%] right-[10%]">something you wanna do with me together</div>
+
+  <!-- JS File -->
+  <script src="spin.js"></script>
+</body>
+</html>

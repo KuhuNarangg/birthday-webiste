@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kuhu's 20th</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-[#f5efe6] flex items-center justify-center h-screen relative overflow-hidden snowfall">
+
+  <!-- Pink Snowfall Background -->
+  <div class="absolute w-full h-full overflow-hidden pointer-events-none z-0">
+    <div class="stars"></div>
+  </div>
+
+  <!-- Floating Childhood Pictures -->
+  <img src="images/baby1.jpeg.jpg" class="lana-float top-[5%] left-[5%]" />
+  <img src="images/baby2.jpeg.jpg" class="lana-float top-[5%] right-[5%]" />
+  <img src="images/baby3.jpeg.jpg" class="lana-float bottom-[5%] left-[5%]" />
+  <img src="images/baby4.jpeg.jpg" class="lana-float bottom-[5%] right-[5%]" />
+  <img src="images/baby5.jpeg.jpg" class="lana-float top-[30%] left-[15%]" />
+  <img src="images/baby6.jpeg.jpg" class="lana-float top-[30%] right-[15%]" />
+  <img src="images/baby7.jpeg.jpg" class="lana-float bottom-[20%] left-[20%]" />
+  <img src="images/baby8.jpeg.jpg" class="lana-float bottom-[20%] right-[20%]" />
+
+  <!-- Star Particles -->
+  <!-- Add more for dreamy density -->
+<div class="stars-container">
+  <div class="drifting-star" style="top: 10%; left: 5%; animation-delay: 2s;"></div>
+  <div class="drifting-star" style="top: 20%; left: 80%; animation-delay: 4s;"></div>
+  <div class="drifting-star" style="top: 50%; left: 10%; animation-delay: 6s;"></div>
+  <div class="drifting-star" style="top: 30%; left: 60%; animation-delay: 8s;"></div>
+  <div class="drifting-star" style="top: 70%; left: 30%; animation-delay: 10s;"></div>
+  <div class="drifting-star" style="top: 40%; left: 90%; animation-delay: 12s;"></div>
+  <div class="drifting-star" style="top: 85%; left: 5%; animation-delay: 14s;"></div>
+  <div class="drifting-star" style="top: 60%; left: 50%; animation-delay: 16s;"></div>
+  <div class="drifting-star" style="top: 15%; left: 40%; animation-delay: 18s;"></div>
+  <div class="drifting-star" style="top: 90%; left: 70%; animation-delay: 20s;"></div>
+</div>
+
+  <!-- Animated Title + Envelope -->
+  <div class="z-10 text-center">
+    <div class="text-[48px] sm:text-[72px] text-[#2b2b2b] font-title animate-kuhu">Kuhu's</div>
+    <div class="text-[40px] sm:text-[60px] text-[#2b2b2b] font-hand animate-twenty">20th</div>
+    <div class="text-[48px] sm:text-[72px] text-[#2b2b2b] font-title animate-birthday">Birthday</div>
+
+    <!-- 📩 Envelope Emoji UNDER the title -->
+    <div class="mt-4">
+      <a href="invite.html" class="text-[48px] hover:scale-110 transition-transform duration-300 cursor-pointer block">
+        📩
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

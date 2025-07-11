@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Memory Drop</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#f9f5f1] min-h-screen flex flex-col justify-center items-center px-4 font-['Playfair_Display'] text-[#2b2b2b] relative overflow-hidden">
+
+  <!-- Memory Input Box -->
+  <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-xl z-10">
+    <h1 class="text-3xl font-['Dancing_Script'] text-center mb-4">📝 Your Memory Entry</h1>
+
+    <!-- <p id="shownPrompt" class="text-md mb-4 italic text-center">Prompt: (loading...)</p> -->
+
+    <input id="userName" type="text" placeholder="Your name" class="w-full border px-4 py-2 mb-4 rounded-md" />
+
+    <textarea id="userAnswer" placeholder="Write your answer here..." class="w-full h-32 border px-4 py-2 mb-4 rounded-md"></textarea>
+
+    <p class="mb-2 text-center font-semibold text-sm">
+      If you know me, you know I keep all my love in pictures, so drop a favourite picture of us 🖼️
+    </p>
+
+    <input id="userImage" type="file" accept="image/*" class="mb-4 w-full" />
+
+    <button onclick="saveMemory()" class="bg-[#2b2b2b] text-white px-6 py-2 rounded-full hover:bg-[#444] transition w-full">
+      ✨ Show Me the Memory Wall
+    </button>
+  </div>
+
+  <!-- Floating Emojis -->
+  <div class="emoji absolute top-8 left-10 animate-float text-3xl delay-1s">🎀</div>
+  <div class="emoji absolute bottom-10 right-16 animate-float text-3xl delay-2s">🌻</div>
+  <div class="emoji absolute top-16 right-10 animate-float text-3xl delay-3s">💌</div>
+  <div class="emoji absolute bottom-16 left-8 animate-float text-3xl delay-4s">🎤</div>
+  <div class="emoji absolute top-1/2 left-1/2 animate-float text-3xl delay-5s">❤️</div>
+  <div class="emoji absolute top-[30%] left-[20%] animate-float text-3xl delay-[2.2s]">❤️</div>
+  <div class="emoji absolute bottom-[20%] right-[20%] animate-float text-3xl delay-[3.3s]">🎀</div>
+  <div class="emoji absolute top-[10%] right-[25%] animate-float text-3xl delay-[1.5s]">❤️</div>
+  <div class="emoji absolute bottom-[10%] left-[25%] animate-float text-3xl delay-[2.7s]">🌻</div>
+
+  <!-- Styles -->
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    .delay-1s { animation-delay: 1s; }
+    .delay-2s { animation-delay: 2s; }
+    .delay-3s { animation-delay: 3s; }
+    .delay-4s { animation-delay: 4s; }
+    .delay-5s { animation-delay: 5s; }
+    .delay-[2.2s] { animation-delay: 2.2s; }
+    .delay-[3.3s] { animation-delay: 3.3s; }
+    .delay-[1.5s] { animation-delay: 1.5s; }
+    .delay-[2.7s] { animation-delay: 2.7s; }
+
+    @keyframes sparkleFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(100%); }
+    }
+
+    .sparkles::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background-image: radial-gradient(white 1px, transparent 1px);
+      background-size: 14px 14px;
+      opacity: 0.1;
+      animation: sparkleFloat 30s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(0.5px);
+    }
+  </style>
+
+  <!-- Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const prompt = sessionStorage.getItem("selectedPrompt") || "Write your memory with me 💭";
+      document.getElementById("shownPrompt").innerText = `Prompt: ${prompt}`;
+    });
+
+    function saveMemory() {
+      const name = document.getElementById("userName").value.trim();
+      const answer = document.getElementById("userAnswer").value.trim();
+      const file = document.getElementById("userImage").files[0];
+      const prompt = sessionStorage.getItem("selectedPrompt");
+      const userId = Date.now(); // generate a simple unique ID
+
+      if (!name || !answer || !file) {
+        alert("Please fill out all fields and upload a photo!");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const entry = {
+          id: userId,
+          name,
+          answer,
+          prompt,
+          imageData: e.target.result,
+          score: sessionStorage.getItem("quizScore") || "?"
+        };
+
+        sessionStorage.setItem("memoryOwnerId", userId); // used for delete logic
+
+        let allMemories = JSON.parse(localStorage.getItem("memories") || "[]");
+        allMemories.push(entry);
+        localStorage.setItem("memories", JSON.stringify(allMemories));
+
+        window.location.href = "memory-wall.html";
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
